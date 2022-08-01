@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* === Paleta de Cores === */
+    --bc-body: #EFF1FF;
+    --bc-body-before: #8E9AAF;
+
+    --c-h1: #FFF;
+    --bc-h1: #CBC0D3;
+    --color-p: #23053A;
+    --c-span: #4A4E69;
+    --bc-span: #FEEAFA;
+
+    /* === Controle de fonte === */
+    font-size: 62.5%;
+}
+
+
+body {
+    background: var(--bc-body);
+    text-align: center;
+}
+
+h1, span {
+    font-family: 'Staatliches', cursive;
+}
+
+p {
+    font-family: 'Palanquin', sans-serif;
+}
+
+/* === HEADER === */
+header::before {
+    content: '';
+    width: 100%;
+    height: 28rem;
+    background: var(--bc-body-before);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header img {
+    width: 13.7rem;
+    height: 13.7rem;
+
+    margin: 3.2rem;
+}
+
+header h1 {
+    color: var(--c-h1);
+
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 3.4rem;
+    letter-spacing: 5px;
+
+    background-color: var(--bc-h1);
+    padding: 8px;
+
+    margin-bottom: 5rem;
+}
+
+header p {
+    color: var(--color-p);
+
+    max-width: 30.5rem;
+    margin: 0 auto 6.3rem;
+    
+    font-size: 2rem;
+    line-height: 1.7rem;
+}
+
+/* === MAIN === */
+.cards {
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.card {
+    position: relative;
+
+    margin-bottom: 3.2rem;
+}
+
+.card span {
+    color: var(--c-span);
+
+    position: absolute;
+    top: 1.7rem;
+    right: 2rem;
+
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 3.4rem;
+    letter-spacing: 1px;
+
+    padding: 2px 20px;
+
+    border-radius: 20px;
+
+    background: var(--bc-span);
+
+    animation: topdown 850ms 350ms backwards;
+}
+
+.card img {
+    max-width: 100%;
+
+    animation: downtop 850ms;
+}
+
+main p {
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    display: none;
+}
+
+/* === MEDIA QUERY === */
+@media (min-width:1000px) {
+    .page {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+        padding-top: 2.5rem;
+    }
+
+    header::before {
+        height: 100vh;
+        width: 33%;
+    }
+
+    header h1 {
+        width: 99%;
+    }
+
+    header p {
+        color: var(--c-h1);
+
+        line-height: 2.4rem;
+    }
+
+    .cards {
+        margin: 5rem auto;
+        max-width: 65.5rem;
+        display: grid;
+        column-gap: 3.2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        grid-template-areas: "img1 img2 img3"
+                             "img4 img2 img6"
+                             "img4 img5 img6";
+    }
+
+    .cards .card:nth-child(1) {
+        grid-area: img1;
+    }
+
+    .cards .card:nth-child(2) {
+        grid-area: img2;
+    }
+
+    .cards .card:nth-child(3) {
+        grid-area: img3;
+    }
+
+    .cards .card:nth-child(4) {
+        grid-area: img4;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-area: img5;
+    }
+
+    .cards .card:nth-child(6) {
+        grid-area: img6;
+    }
+
+    main p {
+        display: block;
+    }
+}
+
+
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
